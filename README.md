@@ -1,1 +1,7 @@
-# redux-shop-shop
+# Redux Shop-Shop
+
+## Description
+
+## Screenshot
+
+## Application Link
