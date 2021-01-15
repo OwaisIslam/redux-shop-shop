@@ -7,3 +7,4 @@ This application is a simple refactor of the [original Shop-Shop application](ht
 ![webpage screenshot](./client/public/images/webpage-screenshot.png)
 
 ## Application Link
+https://redux-shop-shop-owais.herokuapp.com/
