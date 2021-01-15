@@ -11,7 +11,15 @@ import {
 	TOGGLE_CART,
 } from './actions';
 
-export const reducer = (state, action) => {
+const initialState = {
+	products: [],
+	cart: [],
+	cartOpen: false,
+	categories: [],
+	currentCategory: '',
+};
+
+export const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		// if action type value is the value of `UPDATE_PRODUCTS`, return a new state object with an updated products array
 		case UPDATE_PRODUCTS:
@@ -36,7 +44,7 @@ export const reducer = (state, action) => {
 			return {
 				...state,
 				cartOpen: true,
-				cart: [...state.cart, action.product],
+				cart: [...state.cart, ...action.product],
 			};
 
 		case ADD_MULTIPLE_TO_CART:
@@ -62,8 +70,7 @@ export const reducer = (state, action) => {
 				cartOpen: true,
 				cart: state.cart.map(product => {
 					if (action._id === product._id) {
-						product.purchaseQuantity =
-							action.purchaseQuantity;
+						product.purchaseQuantity = action.purchaseQuantity;
 					}
 					return product;
 				}),
@@ -87,6 +94,8 @@ export const reducer = (state, action) => {
 	}
 };
 
-export function useProductReducer(initialState) {
-	return useReducer(reducer, initialState);
-}
+export default reducer;
+
+// export function useProductReducer(initialState) {
+// 	return useReducer(reducer, initialState);
+// }
